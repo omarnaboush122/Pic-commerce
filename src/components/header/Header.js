@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
 
 const Header = () => {
+  
   return (
     <header>
       <Link to="/"><h2>Pic Some</h2></Link>
