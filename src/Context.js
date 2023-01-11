@@ -7,6 +7,14 @@ const Context = createContext();
 const ContextProvider = ({ children }) => {
   const [allPhotos, setAllPhotos] = useState([]);
 
+  const toggleFavorite = (id) => {
+    setAllPhotos((prevPhotos) => {
+      return prevPhotos.map((photo) =>
+        photo.id === id ? { ...photo, isFavorite: !photo.isFavorite } : photo
+      );
+    });
+  };
+
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
@@ -14,7 +22,11 @@ const ContextProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setAllPhotos(data));
   }, []);
-  return <Context.Provider value={{ allPhotos }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ allPhotos, toggleFavorite }}>
+      {children}
+    </Context.Provider>
+  );
 };
 
 export { Context, ContextProvider };

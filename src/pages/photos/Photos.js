@@ -8,7 +8,7 @@ const Photos = () => {
   const {allPhotos} = useContext(Context)
   
   const imageElements = allPhotos.map((photo,i) => (
-    <Image key={photo.id} img={photo.url} className={getClass(i)}/>
+    <Image key={photo.id} img={photo.url} className={getClass(i)} id={photo.id}/>
   ))
   return (
     <div>
