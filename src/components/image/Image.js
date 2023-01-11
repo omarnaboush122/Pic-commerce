@@ -3,7 +3,7 @@
 const Image = ({img,className}) => {
   return (
     <div className={`${className} image-container`}>
-      <img src={img} alt="" />
+      <img className="image-grid" src={img} alt="" />
     </div>
   );
 }
