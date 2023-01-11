@@ -48,6 +48,22 @@ header {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.image-container .favorite {
+  color: var(--red);
+  font-size: 1.2rem;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.image-container .cart {
+  color: var(--blue);
+  font-size: 1.2rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
 
 .wide {
   grid-column: span 2;

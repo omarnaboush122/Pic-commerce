@@ -6,7 +6,23 @@
     height: 100%;
     object-fit: cover;
   }
-  
+  .favorite {
+    color: var(--red);
+    font-size: 1.2rem;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+  }
+
+  .cart {
+    color: var(--blue);
+    font-size: 1.2rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
 }
 
 .wide {

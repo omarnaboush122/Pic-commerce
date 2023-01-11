@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 
 const Image = ({ img, className }) => {
@@ -10,6 +9,8 @@ const Image = ({ img, className }) => {
       onMouseLeave={() => setHovered(false)}
     >
       <img className="image-grid" src={img} alt="" />
+      {hovered && <i className="ri-heart-line favorite"></i>}
+      {hovered && <i className="ri-add-circle-line cart"></i>}
     </div>
   );
 };
