@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { Context } from "../../Context";
+import PropTypes from 'prop-types';
 
 const Image = ({ img, className}) => {
   const [hovered, setHovered] = useState(false);
@@ -21,9 +22,20 @@ const Image = ({ img, className}) => {
     >
       <img className="image-grid" src={img.url} alt="" />
       {heartIcon()}
-      {hovered && <i className="ri-add-circle-line cart"></i>}
+      {hovered && <i  className="ri-add-circle-line cart"></i>}
     </div>
   );
 };
 
+Image.propTypes = {
+  className: PropTypes.string,
+  img: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    isFavorite: PropTypes.bool
+  })
+}
+
 export default Image;
+
+

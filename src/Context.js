@@ -22,6 +22,7 @@ const ContextProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setAllPhotos(data));
   }, []);
+  
   return (
     <Context.Provider value={{ allPhotos, toggleFavorite }}>
       {children}
