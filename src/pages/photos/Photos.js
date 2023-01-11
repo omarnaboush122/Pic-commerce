@@ -7,8 +7,8 @@ import { getClass } from "../../utils";
 const Photos = () => {
   const {allPhotos} = useContext(Context)
   
-  const imageElements = allPhotos.map((photo,i) => (
-    <Image key={photo.id} img={photo.url} className={getClass(i)} id={photo.id}/>
+  const imageElements = allPhotos.map((img,i) => (
+    <Image key={img.id} img={img} className={getClass(i)} />
   ))
   return (
     <div>
