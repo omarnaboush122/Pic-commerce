@@ -7,8 +7,6 @@ function App() {
   return (
     <div>
       <Header/>
-      <h1>Home page</h1>
-
       <Routes>
         <Route path="/" element={<Photos/>} />
         <Route path="/cart" element={<Cart/>} />

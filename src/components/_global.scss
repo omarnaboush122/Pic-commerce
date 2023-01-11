@@ -1,17 +1,22 @@
 :root {
   --black: #150605;
-  --red: #EA453C;
-  --pink: #F47B6E;
-  --light-blue: #EFFBFE;
-  --blue: #ACE6EC;
+  --red: #ea453c;
+  --pink: #f47b6e;
+  --light-blue: #effbfe;
+  --blue: #ace6ec;
 }
 
-html, body {
-  font-family: 'Oswald', sans-serif;
+html,
+body {
+  font-family: "Oswald", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 a {
   text-decoration: none;
+  &:visited,&:hover,&:active {
+    color: var(--light-blue);
+  }
 }
+
