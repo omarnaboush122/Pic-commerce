@@ -37,8 +37,8 @@ const ContextProvider = ({ children }) => {
       value={{
         allPhotos,
         toggleFavorite,
-        addToCart,
         cartItems,
+        addToCart,
         removeFromCart
       }}
     >
