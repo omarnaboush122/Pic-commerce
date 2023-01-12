@@ -6,7 +6,7 @@ const CartItem = ({ cart }) => {
   const { removeFromCart } = useContext(Context);
   const [hover, setHover] = useState(false);
 
-  const iconClassName = hover ? "fill" : "line";
+  const iconClassName = hover ? "ri-delete-bin-fill" : "ri-delete-bin-line";
 
   return (
     <div>
@@ -15,7 +15,7 @@ const CartItem = ({ cart }) => {
           onClick={() => removeFromCart(cart.id)}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          className={`ri-delete-bin-${iconClassName}`}
+          className={iconClassName}
         ></i>
         <img src={cart.url} alt="" />
         <p>$5.99</p>
