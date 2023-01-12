@@ -19,22 +19,26 @@ const Cart = () => {
       setButtonText("Order being placed");
       emptyCart();
     }, 3000);
-  }
+  };
 
-    const cartItemsElements = cartItems.map((cart) => (
-      <CartItem key={cart.id} cart={cart} />
-    ));
+  const cartItemsElements = cartItems.map((cart) => (
+    <CartItem key={cart.id} cart={cart} />
+  ));
 
-    return (
-      <main className="cart-page">
-        <h1>Check out</h1>
-        {cartItemsElements}
-        <p className="total-cost">Total: {totalCost} </p>
+  return (
+    <main className="cart-page">
+      <h1>Check out</h1>
+      {cartItemsElements}
+      <p className="total-cost">Total: {totalCost} </p>
+      {cartItems.length ? (
         <div className="order-button">
           <button onClick={orderPlace}>{buttonText}</button>
         </div>
-      </main>
-    );
-  };
+      ) : (
+        <p>You Have No Items In Your Cart</p>
+      )}
+    </main>
+  );
+};
 
 export default Cart;
