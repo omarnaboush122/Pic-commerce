@@ -5,12 +5,21 @@ import { Context } from "../../Context";
 
 const Cart = () => {
   const { cartItems } = useContext(Context);
-  const cartItemsElements = cartItems.map((cart) => <CartItem key={cart.id} cart={cart} />);
+
+  const totalCost = (5.99 * cartItems.length).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const cartItemsElements = cartItems.map((cart) => (
+    <CartItem key={cart.id} cart={cart} />
+  ));
+
   return (
     <main className="cart-page">
       <h1>Check out</h1>
       {cartItemsElements}
-      <p className="total-cost">Total: </p>
+      <p className="total-cost">Total: {totalCost} </p>
       <div className="order-button">
         <button>Place Order</button>
       </div>

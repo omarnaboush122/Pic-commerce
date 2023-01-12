@@ -111,6 +111,7 @@ header {
   margin: 20px 0;
 }
 .cart-item img {
+  width: 200px;
   margin-right: auto;
   margin-left: 10px;
 }
