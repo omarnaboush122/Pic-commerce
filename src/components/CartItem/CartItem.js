@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState ,useContext} from "react";
+import PropTypes from "prop-types"
 import { Context } from "../../Context";
 
 const CartItem = ({ cart }) => {
@@ -23,5 +23,11 @@ const CartItem = ({ cart }) => {
     </div>
   );
 };
+
+CartItem.propTypes = {
+  cart: PropTypes.shape({
+      url: PropTypes.string.isRequired
+  })
+}
 
 export default CartItem;
