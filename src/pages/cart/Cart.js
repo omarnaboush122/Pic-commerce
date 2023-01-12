@@ -1,30 +1,40 @@
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import CartItem from "../../components/CartItem/CartItem";
 import { Context } from "../../Context";
 
 const Cart = () => {
-  const { cartItems } = useContext(Context);
+  const [buttonText, setButtonText] = useState("Place order");
+  const { cartItems, emptyCart } = useContext(Context);
 
   const totalCost = (5.99 * cartItems.length).toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  const cartItemsElements = cartItems.map((cart) => (
-    <CartItem key={cart.id} cart={cart} />
-  ));
+  const orderPlace = () => {
+    setButtonText("Ordering...");
+    setTimeout(() => {
+      setButtonText("Order being placed");
+      emptyCart();
+    }, 3000);
+  }
 
-  return (
-    <main className="cart-page">
-      <h1>Check out</h1>
-      {cartItemsElements}
-      <p className="total-cost">Total: {totalCost} </p>
-      <div className="order-button">
-        <button>Place Order</button>
-      </div>
-    </main>
-  );
-};
+    const cartItemsElements = cartItems.map((cart) => (
+      <CartItem key={cart.id} cart={cart} />
+    ));
+
+    return (
+      <main className="cart-page">
+        <h1>Check out</h1>
+        {cartItemsElements}
+        <p className="total-cost">Total: {totalCost} </p>
+        <div className="order-button">
+          <button onClick={orderPlace}>{buttonText}</button>
+        </div>
+      </main>
+    );
+  };
 
 export default Cart;
