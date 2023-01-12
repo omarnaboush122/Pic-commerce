@@ -7,7 +7,7 @@ const Header = () => {
   const cartClassName = cartItems.length ? "fill" : "line";
   return (
     <header>
-      <Link to="/"><h2>Pic Some</h2></Link>
+      <Link to="/Pic-commerce"><h2>Pic Some</h2></Link>
       <Link to="/cart"><i className={`ri-shopping-cart-${cartClassName} ri-fw ri-2x`}></i></Link>
     </header>
   );
