@@ -19,6 +19,11 @@ const ContextProvider = ({ children }) => {
     setCartItems((prevCartItems) => [...prevCartItems, newItem]);
   };
 
+  const removeFromCart = (id) => {
+    setCartItems(prevCartItems => (
+      prevCartItems.filter(cart => cart.id !== id)
+    ))
+  }
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
@@ -34,6 +39,7 @@ const ContextProvider = ({ children }) => {
         toggleFavorite,
         addToCart,
         cartItems,
+        removeFromCart
       }}
     >
       {children}
