@@ -35,8 +35,13 @@ const ContextProvider = ({ children }) => {
     )
       .then((res) => res.json())
       .then((data) => setAllPhotos(data));
+      
+      setCartItems(JSON.parse(localStorage.getItem("cartitems")))
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("cartitems",JSON.stringify(cartItems));
+  },[cartItems])
 
   return (
     <Context.Provider
