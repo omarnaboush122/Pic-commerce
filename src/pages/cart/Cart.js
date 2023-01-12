@@ -5,7 +5,7 @@ import { Context } from "../../Context";
 
 const Cart = () => {
   const { cartItems } = useContext(Context);
-  const cartItemsElements = cartItems.map((cart) => <CartItem key={cart.id} />);
+  const cartItemsElements = cartItems.map((cart) => <CartItem key={cart.id} cart={cart} />);
   return (
     <main className="cart-page">
       <h1>Check out</h1>
