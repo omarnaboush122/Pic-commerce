@@ -35,7 +35,7 @@ const ContextProvider = ({ children }) => {
     )
       .then((res) => res.json())
       .then((data) => setAllPhotos(data));
-      
+
       setCartItems(JSON.parse(localStorage.getItem("cartitems")))
   }, []);
 
@@ -47,8 +47,8 @@ const ContextProvider = ({ children }) => {
     <Context.Provider
       value={{
         allPhotos,
-        toggleFavorite,
         cartItems,
+        toggleFavorite,
         addToCart,
         removeFromCart,
         emptyCart
