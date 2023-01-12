@@ -6,20 +6,19 @@ const Context = createContext();
 
 const ContextProvider = ({ children }) => {
   const [allPhotos, setAllPhotos] = useState([]);
-  const [cartItems,setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const toggleFavorite = (id) => {
-    setAllPhotos((prevPhotos) => {
-      return prevPhotos.map((photo) =>
+    setAllPhotos((prevPhotos) => (
+      prevPhotos.map((photo) =>
         photo.id === id ? { ...photo, isFavorite: !photo.isFavorite } : photo
-      );
-    });
+    )))
   };
 
-  const addCart = (newItem) => {
-    setCartItems(prevCartItems => [...prevCartItems,newItem]);
-  }
-  console.log(cartItems);
+  const addToCart = (newItem) => {
+    setCartItems((prevCartItems) => [...prevCartItems, newItem]);
+  };
+
   useEffect(() => {
     fetch(
       "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
@@ -29,7 +28,14 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <Context.Provider value={{ allPhotos, toggleFavorite,addCart }}>
+    <Context.Provider
+      value={{
+        allPhotos,
+        toggleFavorite,
+        addToCart,
+        cartItems,
+      }}
+    >
       {children}
     </Context.Provider>
   );
